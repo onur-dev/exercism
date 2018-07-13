@@ -2,7 +2,7 @@ const allergyTypes = [ 'eggs', 'peanuts', 'shellfish', 'strawberries',
   'tomatoes', 'chocolate', 'pollen', 'cats'];
 
 var Allergies = function(val) {
-    if(!isNaN(val)) this.currentVal = val;
+    if(!isNaN(val)) this.totalAllergyScore = val;
     else throw Error('invalid input!');
 };
 
@@ -11,12 +11,7 @@ Allergies.prototype.allergicTo = function(val) {
 };
 
 Allergies.prototype.list = function() {
-    let allergies = [];
-    allergyTypes.forEach((elem, index) => {
-        var allergy = allergyTypes[index], currentAllergy = Math.pow(2, index);
-        if (currentAllergy & this.currentVal) allergies.push(allergy);
-    });
-    return allergies;
+    return allergyTypes.filter((allergy, index) => Math.pow(2, index) & this.totalAllergyScore);
 };
 
 module.exports = Allergies;

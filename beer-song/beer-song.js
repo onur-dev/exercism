@@ -7,6 +7,7 @@ const cases = {
 var BeerSong = function() {};
 
 BeerSong.prototype.verse = function(val) {
+    if(isNaN(val)) throw Error('invalid input!');
     let currentVerse = val.toString(), nextVerse = (val - 1).toString();
 	var normalLine = `${val} bottles of beer on the wall, ${val} bottles of beer.\nTake one down and pass it around, ${val-1} bottles of beer on the wall.\n`;
 	return val in cases ? cases[val] : normalLine;
@@ -14,6 +15,7 @@ BeerSong.prototype.verse = function(val) {
 
 BeerSong.prototype.sing = function(start, end) {
     if(!end) end = 0;
+    if(isNaN(start) || isNaN(end)) throw Error('invalid input!');
     let result = [];
     for(var i = start; i >= end; i--) {
 		result.push(this.verse(i));
