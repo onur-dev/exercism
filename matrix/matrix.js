@@ -1,4 +1,5 @@
 var Matrix = function (val) {
+    if(typeof val !== 'string') throw Error('invalid input!');
     let rows = val.split("\n");
     this.rows = rows.map( currentRow =>  {
 		return currentRow.split(" ").map(currentVal => parseInt(currentVal) );

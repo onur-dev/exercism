@@ -1,5 +1,6 @@
-var BinarySearch = function(array) {
-    if(this.isSorted(array)) this.array = array;
+var BinarySearch = function(input) {
+    if(!Array.isArray(input)) throw Error('invalid input!');
+    if(this.isSorted(input)) this.array = input;
 };
 
 BinarySearch.prototype.isSorted = function(array) {

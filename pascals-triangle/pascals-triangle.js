@@ -1,4 +1,5 @@
 var Triangle = function (totalRows) {
+	if(isNaN(totalRows)) throw Error('invalid input!');
     this.rows = [];
     let row = [1];
 

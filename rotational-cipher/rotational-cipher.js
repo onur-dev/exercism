@@ -4,6 +4,7 @@ const fullAlphabet = alphabet.repeat(3);
 var RotationalCipher = function () {};
 
 RotationalCipher.prototype.rotate = function(str, offset) {
+    if(typeof str !== 'string' || isNaN(offset)) throw Error('invalid input!');
     let newOffset = (offset % alphabet.length), finalStr = '';
 
     for(var i=0; i < str.length; i++){

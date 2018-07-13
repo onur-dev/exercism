@@ -2,7 +2,8 @@ const allergyTypes = [ 'eggs', 'peanuts', 'shellfish', 'strawberries',
   'tomatoes', 'chocolate', 'pollen', 'cats'];
 
 var Allergies = function(val) {
-    this.currentVal = val;
+    if(!isNaN(val)) this.currentVal = val;
+    else throw Error('invalid input!');
 };
 
 Allergies.prototype.allergicTo = function(val) {
